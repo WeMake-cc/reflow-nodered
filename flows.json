@@ -24,17 +24,9 @@
         "env": []
     },
     {
-        "id": "d4fc267b074140f6",
+        "id": "f8d4338b40ccbba9",
         "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "7a9a689b1b991e15",
-        "type": "tab",
-        "label": "Flow 1",
+        "label": "UI one",
         "disabled": false,
         "info": "",
         "env": []
@@ -156,7 +148,7 @@
         "id": "1bf8ea68f62a96fd",
         "type": "ui_group",
         "name": "reflow",
-        "tab": "cf663179164c69d1",
+        "tab": "a9c7afec098fb039",
         "order": 1,
         "disp": false,
         "width": "10",
@@ -275,6 +267,36 @@
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
+    },
+    {
+        "id": "c6a88f87f8cf82af",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "cf663179164c69d1",
+        "order": 1,
+        "disp": false,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a2068d7696855810",
+        "type": "ui_tab",
+        "name": "three",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6edf3c3e8b26af1b",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "a2068d7696855810",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
     },
     {
         "id": "8ba8672253c19bee",
@@ -763,7 +785,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "panino08",
+        "payload": "panino09",
         "payloadType": "str",
         "x": 310,
         "y": 520,
@@ -803,7 +825,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "panino07",
+        "payload": "panino11",
         "payloadType": "str",
         "x": 310,
         "y": 460,
@@ -854,8 +876,8 @@
         "type": "subflow:6dbb08529c2feac4",
         "z": "727cabf56f83b992",
         "name": "",
-        "x": 620,
-        "y": 240,
+        "x": 600,
+        "y": 260,
         "wires": [
             [
                 "cc2b490738580147"
@@ -884,8 +906,8 @@
         "topic": "",
         "payload": "panino58",
         "payloadType": "str",
-        "x": 130,
-        "y": 240,
+        "x": 150,
+        "y": 260,
         "wires": [
             [
                 "b48934f7c8cbcc0a"
@@ -1618,14 +1640,14 @@
         ]
     },
     {
-        "id": "f211726934f12e18",
+        "id": "ae531496b0ed9bec",
         "type": "ui_button",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "",
-        "group": "1bf8ea68f62a96fd",
+        "group": "c6a88f87f8cf82af",
         "order": 3,
-        "width": 0,
-        "height": 0,
+        "width": "6",
+        "height": "1",
         "passthru": false,
         "label": "query Economic Resources",
         "tooltip": "",
@@ -1637,38 +1659,38 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 140,
-        "y": 380,
+        "x": 160,
+        "y": 120,
         "wires": [
             [
-                "db36c514d532545a"
+                "dd75fc8b62d3f68d"
             ]
         ]
     },
     {
-        "id": "db36c514d532545a",
+        "id": "dd75fc8b62d3f68d",
         "type": "graphql",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "query economicResources",
         "graphql": "e0d0143ee4f650a7",
         "format": "text",
         "syntax": "plain",
         "template": "query economicResources {\n  economicResources {\n    id\n    image\n    name\n    note\n    onhandQuantity {\n      hasNumericalValue\n    }\n    accountingQuantity {\n      hasNumericalValue\n      hasUnit {\n        canonicalUrl\n        id\n        label\n        symbol\n      }\n      id\n    }\n  }\n}",
         "showDebug": false,
-        "x": 420,
-        "y": 380,
+        "x": 440,
+        "y": 120,
         "wires": [
             [
-                "775506a6b1c7e552",
-                "7cac6463fcc1333a"
+                "9694c70d11269d0e",
+                "7df3f9b4385b2c83"
             ],
             []
         ]
     },
     {
-        "id": "b6295a9427dc1afb",
+        "id": "f0cfc191f7b56d67",
         "type": "inject",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "resourceSpecifications",
         "props": [
             {
@@ -1682,16 +1704,16 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 140,
-        "y": 440,
+        "x": 160,
+        "y": 180,
         "wires": [
             []
         ]
     },
     {
-        "id": "b25038c12ad7a001",
+        "id": "e70e92f5e93fc3dd",
         "type": "debug",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1701,34 +1723,34 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 890,
-        "y": 360,
+        "x": 910,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "223307711643217c",
+        "id": "06809219c28278aa",
         "type": "graphql",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "economicResource",
         "graphql": "e0d0143ee4f650a7",
         "format": "handlebars",
         "syntax": "mustache",
         "template": "query MyQuery {\n  economicResource(id: \"{{payload}}\") {\n    name\n    note\n    onhandQuantity {\n      hasNumericalValue\n    }\n  }\n}\n",
         "showDebug": false,
-        "x": 470,
-        "y": 560,
+        "x": 490,
+        "y": 300,
         "wires": [
             [
-                "4ce122dbbd1de7b5",
-                "72fe0c9438dc610f"
+                "051deb6ba0e069c9",
+                "a59eda712ef12abc"
             ],
             []
         ]
     },
     {
-        "id": "16cb3bbfc07b6872",
+        "id": "d6b96d5b66cda02b",
         "type": "inject",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "01FNRPYRXK8MEVMR0SQQSD0QPC",
         "props": [
             {
@@ -1747,18 +1769,18 @@
         "topic": "",
         "payload": "01FNRPYRXK8MEVMR0SQQSD0QPC",
         "payloadType": "str",
-        "x": 190,
-        "y": 620,
+        "x": 210,
+        "y": 360,
         "wires": [
             []
         ]
     },
     {
-        "id": "7838d4fad724fe1c",
+        "id": "e4909ec6861e787a",
         "type": "ui_template",
-        "z": "7a9a689b1b991e15",
-        "group": "1bf8ea68f62a96fd",
-        "name": "",
+        "z": "f8d4338b40ccbba9",
+        "group": "c6a88f87f8cf82af",
+        "name": "resources",
         "order": 3,
         "width": "10",
         "height": "10",
@@ -1768,16 +1790,16 @@
         "resendOnRefresh": false,
         "templateScope": "local",
         "className": "",
-        "x": 880,
-        "y": 400,
+        "x": 900,
+        "y": 140,
         "wires": [
             []
         ]
     },
     {
-        "id": "775506a6b1c7e552",
+        "id": "9694c70d11269d0e",
         "type": "template",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -1785,19 +1807,19 @@
         "syntax": "mustache",
         "template": "{{#payload.economicResources}}\n      {{id}} {{name}} {{note}} {{onhandQuantity.hasNumericalValue}}\n{{/payload.economicResources}}",
         "output": "str",
-        "x": 660,
-        "y": 400,
+        "x": 680,
+        "y": 140,
         "wires": [
             [
-                "b25038c12ad7a001",
-                "7838d4fad724fe1c"
+                "e70e92f5e93fc3dd",
+                "e4909ec6861e787a"
             ]
         ]
     },
     {
-        "id": "7cac6463fcc1333a",
+        "id": "7df3f9b4385b2c83",
         "type": "debug",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1807,14 +1829,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 340,
+        "x": 690,
+        "y": 60,
         "wires": []
     },
     {
-        "id": "169c08603ceead08",
+        "id": "f835db6f95c2e56f",
         "type": "debug",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1824,14 +1846,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 520,
+        "x": 930,
+        "y": 260,
         "wires": []
     },
     {
-        "id": "db48253c98890113",
+        "id": "20e301d7524e9798",
         "type": "ui_text_input",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "",
         "label": "",
         "tooltip": "query a resource",
@@ -1846,18 +1868,18 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 180,
-        "y": 560,
+        "x": 140,
+        "y": 300,
         "wires": [
             [
-                "223307711643217c"
+                "06809219c28278aa"
             ]
         ]
     },
     {
-        "id": "4ce122dbbd1de7b5",
+        "id": "051deb6ba0e069c9",
         "type": "template",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -1865,19 +1887,19 @@
         "syntax": "mustache",
         "template": "{{#payload.economicResource}}\n      {{name}} {{note}} {{onhandQuantity.hasNumericalValue}}\n{{/payload.economicResource}}",
         "output": "str",
-        "x": 680,
-        "y": 580,
+        "x": 700,
+        "y": 320,
         "wires": [
             [
-                "8f366b427006fe17",
-                "169c08603ceead08"
+                "b2ad18643edd4511",
+                "f835db6f95c2e56f"
             ]
         ]
     },
     {
-        "id": "8f366b427006fe17",
+        "id": "b2ad18643edd4511",
         "type": "ui_template",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "group": "1bf8ea68f62a96fd",
         "name": "",
         "order": 3,
@@ -1889,16 +1911,16 @@
         "resendOnRefresh": false,
         "templateScope": "local",
         "className": "",
-        "x": 900,
-        "y": 580,
+        "x": 920,
+        "y": 320,
         "wires": [
             []
         ]
     },
     {
-        "id": "72fe0c9438dc610f",
+        "id": "a59eda712ef12abc",
         "type": "debug",
-        "z": "7a9a689b1b991e15",
+        "z": "f8d4338b40ccbba9",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1908,8 +1930,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 520,
+        "x": 710,
+        "y": 260,
         "wires": []
     }
 ]
