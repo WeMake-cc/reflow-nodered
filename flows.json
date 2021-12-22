@@ -1,14 +1,6 @@
 [
     {
-        "id": "727cabf56f83b992",
-        "type": "tab",
-        "label": "Graphql Reflow",
-        "disabled": false,
-        "info": "",
-        "env": []
-    },
-    {
-        "id": "c107fab43a12cc56",
+        "id": "c88cec65dadb9624",
         "type": "tab",
         "label": "Login & password",
         "disabled": false,
@@ -16,15 +8,31 @@
         "env": []
     },
     {
-        "id": "97fe2bfd9d427697",
+        "id": "0fc72fe12e80a3d9",
         "type": "tab",
-        "label": "description",
+        "label": "query",
         "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "f8d4338b40ccbba9",
+        "id": "727cabf56f83b992",
+        "type": "tab",
+        "label": "mutation",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "97fe2bfd9d427697",
+        "type": "tab",
+        "label": "valueflow info",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "11e7289ee8d08b57",
         "type": "tab",
         "label": "UI one",
         "disabled": false,
@@ -150,9 +158,9 @@
         "name": "reflow",
         "tab": "a9c7afec098fb039",
         "order": 1,
-        "disp": false,
-        "width": "10",
-        "collapse": false,
+        "disp": true,
+        "width": "8",
+        "collapse": true,
         "className": ""
     },
     {
@@ -179,7 +187,8 @@
                 "default": "#097479",
                 "baseColor": "#097479",
                 "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
-                "edited": false
+                "edited": true,
+                "reset": false
             },
             "customTheme": {
                 "name": "Untitled Theme 1",
@@ -245,7 +254,7 @@
             "name": "Node-RED Dashboard",
             "hideToolbar": "false",
             "allowSwipe": "false",
-            "lockMenu": "false",
+            "lockMenu": "icon",
             "allowTempTheme": "true",
             "dateFormat": "DD/MM/YYYY",
             "sizes": {
@@ -274,9 +283,9 @@
         "name": "Default",
         "tab": "cf663179164c69d1",
         "order": 1,
-        "disp": false,
-        "width": "10",
-        "collapse": false,
+        "disp": true,
+        "width": "8",
+        "collapse": true,
         "className": ""
     },
     {
@@ -297,6 +306,16 @@
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "8d410a9ac7c8e6d5",
+        "type": "ui_spacer",
+        "z": "11e7289ee8d08b57",
+        "name": "spacer",
+        "group": "c6a88f87f8cf82af",
+        "order": 2,
+        "width": "",
+        "height": ""
     },
     {
         "id": "8ba8672253c19bee",
@@ -403,9 +422,230 @@
         ]
     },
     {
-        "id": "2904ace6e2db2de0",
+        "id": "c67f73035a0895ef",
+        "type": "inject",
+        "z": "c88cec65dadb9624",
+        "name": "execute login and set bearer in flows",
+        "props": [
+            {
+                "p": "time",
+                "v": "",
+                "vt": "date"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 200,
+        "y": 420,
+        "wires": [
+            [
+                "0782f7e45216b5de"
+            ]
+        ]
+    },
+    {
+        "id": "0782f7e45216b5de",
+        "type": "change",
+        "z": "c88cec65dadb9624",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "emailOrUsername",
+                "pt": "msg",
+                "to": "emailOrUsername",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "password",
+                "pt": "msg",
+                "to": "password",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 420,
+        "wires": [
+            [
+                "c6920321baf33ea8"
+            ]
+        ]
+    },
+    {
+        "id": "dfded4717dbfc50b",
+        "type": "inject",
+        "z": "c88cec65dadb9624",
+        "name": "Set emailOrUsername",
+        "props": [
+            {
+                "p": "emailOrUsername",
+                "v": "emailOrUsername",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "6ef337fee00f0b8f"
+            ]
+        ]
+    },
+    {
+        "id": "6ef337fee00f0b8f",
+        "type": "change",
+        "z": "c88cec65dadb9624",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "emailOrUsername",
+                "pt": "global",
+                "to": "emailOrUsername",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "emailOrUsername",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 100,
+        "wires": [
+            [
+                "022e91580ca84871"
+            ]
+        ]
+    },
+    {
+        "id": "022e91580ca84871",
         "type": "debug",
-        "z": "727cabf56f83b992",
+        "z": "c88cec65dadb9624",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "eda10669a5f2febf",
+        "type": "debug",
+        "z": "c88cec65dadb9624",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1010,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "74e34380071b2b64",
+        "type": "template",
+        "z": "c88cec65dadb9624",
+        "name": "Bearer",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Bearer {{payload.login.token}}",
+        "output": "str",
+        "x": 770,
+        "y": 420,
+        "wires": [
+            [
+                "eda10669a5f2febf",
+                "2915627d7222964f"
+            ]
+        ]
+    },
+    {
+        "id": "2915627d7222964f",
+        "type": "change",
+        "z": "c88cec65dadb9624",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "bearer",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 970,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28b1f5b4697b8e69",
+        "type": "inject",
+        "z": "c88cec65dadb9624",
+        "name": "check password",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "password",
+        "payloadType": "global",
+        "x": 140,
+        "y": 780,
+        "wires": [
+            [
+                "0b1ae1f9c1bf366c"
+            ]
+        ]
+    },
+    {
+        "id": "0b1ae1f9c1bf366c",
+        "type": "debug",
+        "z": "c88cec65dadb9624",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -415,9 +655,484 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 930,
-        "y": 680,
+        "x": 410,
+        "y": 780,
         "wires": []
+    },
+    {
+        "id": "c6920321baf33ea8",
+        "type": "graphql",
+        "z": "c88cec65dadb9624",
+        "name": "Dyne sandbox",
+        "graphql": "e0d0143ee4f650a7",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "mutation {\n   \n  login(emailOrUsername: \"{{emailOrUsername}}\", password: \"{{password}}\") {\n      token # Use the token to activate a session with the server\n    }\n}",
+        "showDebug": true,
+        "x": 620,
+        "y": 420,
+        "wires": [
+            [
+                "74e34380071b2b64"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "72fda8ce41b1b923",
+        "type": "inject",
+        "z": "c88cec65dadb9624",
+        "name": "check bearer",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "bearer",
+        "payloadType": "global",
+        "x": 130,
+        "y": 840,
+        "wires": [
+            [
+                "165825259d527c8d"
+            ]
+        ]
+    },
+    {
+        "id": "165825259d527c8d",
+        "type": "debug",
+        "z": "c88cec65dadb9624",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "4c33664d57805ca2",
+        "type": "inject",
+        "z": "c88cec65dadb9624",
+        "name": "Set password",
+        "props": [
+            {
+                "p": "password",
+                "v": "password",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "d49bddd6a3a47c76"
+            ]
+        ]
+    },
+    {
+        "id": "d49bddd6a3a47c76",
+        "type": "change",
+        "z": "c88cec65dadb9624",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "password",
+                "pt": "global",
+                "to": "password",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "password",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 260,
+        "wires": [
+            [
+                "70a9af568d8c68c7"
+            ]
+        ]
+    },
+    {
+        "id": "70a9af568d8c68c7",
+        "type": "debug",
+        "z": "c88cec65dadb9624",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 570,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d3e4e08acfd735c6",
+        "type": "inject",
+        "z": "c88cec65dadb9624",
+        "name": "check emailOrUsername",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "emailOrUsername",
+        "payloadType": "global",
+        "x": 170,
+        "y": 720,
+        "wires": [
+            [
+                "89dd61be1892accc"
+            ]
+        ]
+    },
+    {
+        "id": "89dd61be1892accc",
+        "type": "debug",
+        "z": "c88cec65dadb9624",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "d08c2b2a8ace56f7",
+        "type": "comment",
+        "z": "c88cec65dadb9624",
+        "name": "check your credentials",
+        "info": "",
+        "x": 120,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "9fc9c610ee84a495",
+        "type": "comment",
+        "z": "c88cec65dadb9624",
+        "name": "write your emailOrUsername ",
+        "info": "",
+        "x": 140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "2374d4ca921330de",
+        "type": "comment",
+        "z": "c88cec65dadb9624",
+        "name": "write your password ",
+        "info": "",
+        "x": 110,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "ac24487243f2ba0e",
+        "type": "comment",
+        "z": "c88cec65dadb9624",
+        "name": "execute login and set bearer in flows",
+        "info": "",
+        "x": 160,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "a5956f57b30de140",
+        "type": "comment",
+        "z": "c88cec65dadb9624",
+        "name": "check your Agent. It works if you're logged in.",
+        "info": "",
+        "x": 190,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "73bb981fafe5df99",
+        "type": "graphql",
+        "z": "c88cec65dadb9624",
+        "name": "query myAgent",
+        "graphql": "e0d0143ee4f650a7",
+        "format": "text",
+        "syntax": "mustache",
+        "template": "query myAgent {\n  myAgent {\n    agentType\n    canonicalUrl\n    inventoriedEconomicResources {\n      name\n    }\n  }\n}",
+        "showDebug": false,
+        "x": 320,
+        "y": 580,
+        "wires": [
+            [
+                "2b20c3cacae6b064"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f87622b4724a4818",
+        "type": "inject",
+        "z": "c88cec65dadb9624",
+        "name": "agents",
+        "props": [
+            {
+                "p": "authorization",
+                "v": "bearer",
+                "vt": "global"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 110,
+        "y": 580,
+        "wires": [
+            [
+                "73bb981fafe5df99"
+            ]
+        ]
+    },
+    {
+        "id": "2b20c3cacae6b064",
+        "type": "debug",
+        "z": "c88cec65dadb9624",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "1ac82c6225854f4f",
+        "type": "debug",
+        "z": "0fc72fe12e80a3d9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "774e13f05193dcbd",
+        "type": "inject",
+        "z": "0fc72fe12e80a3d9",
+        "name": "categories",
+        "props": [
+            {
+                "p": "authorization",
+                "v": "bearer",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "bd203777f80fa972"
+            ]
+        ]
+    },
+    {
+        "id": "bd203777f80fa972",
+        "type": "graphql",
+        "z": "0fc72fe12e80a3d9",
+        "name": "categories",
+        "graphql": "e0d0143ee4f650a7",
+        "format": "text",
+        "syntax": "mustache",
+        "template": "query MyQuery {\n  categories {\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n    }\n    totalCount\n  }\n}\n",
+        "showDebug": false,
+        "x": 330,
+        "y": 80,
+        "wires": [
+            [
+                "1ac82c6225854f4f"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d39a3b6dbc568e56",
+        "type": "graphql",
+        "z": "0fc72fe12e80a3d9",
+        "name": "query Agents",
+        "graphql": "e0d0143ee4f650a7",
+        "format": "text",
+        "syntax": "mustache",
+        "template": "query agents {\n  agents(limit: 40) {\n    canonicalUrl\n    displayUsername\n    id\n    image\n    agentType\n    name\n    note\n\n  }\n}\n \n",
+        "showDebug": false,
+        "x": 330,
+        "y": 240,
+        "wires": [
+            [
+                "f3d3b50da036fd7b"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "997b8ec0a66df63a",
+        "type": "inject",
+        "z": "0fc72fe12e80a3d9",
+        "name": "agents",
+        "props": [
+            {
+                "p": "authorization",
+                "v": "bearer",
+                "vt": "global"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "d39a3b6dbc568e56"
+            ]
+        ]
+    },
+    {
+        "id": "f3d3b50da036fd7b",
+        "type": "debug",
+        "z": "0fc72fe12e80a3d9",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ed85bdbdb7ed3212",
+        "type": "graphql",
+        "z": "0fc72fe12e80a3d9",
+        "name": "query economicResources",
+        "graphql": "e0d0143ee4f650a7",
+        "format": "text",
+        "syntax": "plain",
+        "template": "query economicResources {\n  economicResources {\n    id\n    image\n    name\n    note\n    onhandQuantity {\n      hasNumericalValue\n    }\n    accountingQuantity {\n      hasNumericalValue\n      hasUnit {\n        canonicalUrl\n        id\n        label\n        symbol\n      }\n      id\n    }\n  }\n}",
+        "showDebug": false,
+        "x": 380,
+        "y": 380,
+        "wires": [
+            [
+                "01752e45d5cbdafd"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "01752e45d5cbdafd",
+        "type": "debug",
+        "z": "0fc72fe12e80a3d9",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 630,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "92831a96c79da7d1",
+        "type": "inject",
+        "z": "0fc72fe12e80a3d9",
+        "name": "query",
+        "props": [
+            {
+                "p": "authorization",
+                "v": "bearer",
+                "vt": "global"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "ed85bdbdb7ed3212"
+            ]
+        ]
     },
     {
         "id": "e35842588beca687",
@@ -429,8 +1144,8 @@
         "syntax": "mustache",
         "template": "query MyQuery {\n  resourceSpecification(id: \"{{payload}}\") {\n    note\n    name\n    id\n    resourceClassifiedAs\n  }\n}",
         "showDebug": false,
-        "x": 600,
-        "y": 120,
+        "x": 640,
+        "y": 540,
         "wires": [
             [
                 "cc2b490738580147"
@@ -455,8 +1170,8 @@
         "topic": "",
         "payload": "01FNPMN6Z55W7P088THDXJY78A",
         "payloadType": "str",
-        "x": 190,
-        "y": 120,
+        "x": 210,
+        "y": 540,
         "wires": [
             [
                 "e35842588beca687"
@@ -476,8 +1191,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 120,
+        "x": 930,
+        "y": 480,
         "wires": []
     },
     {
@@ -490,8 +1205,8 @@
         "syntax": "mustache",
         "template": "mutation {\n  createResourceSpecification(\n    resourceSpecification: {\n      name: \"{{payload}}\"\n      resourceClassifiedAs: \"pane\"\n      note: \"nota pane\"\n    }\n  ) {\n    resourceSpecification {\n      id\n      name\n    }\n  }\n}\n",
         "showDebug": true,
-        "x": 510,
-        "y": 180,
+        "x": 530,
+        "y": 600,
         "wires": [
             [
                 "cc2b490738580147"
@@ -521,56 +1236,12 @@
         "topic": "",
         "payload": "panino59",
         "payloadType": "str",
-        "x": 140,
-        "y": 180,
+        "x": 160,
+        "y": 600,
         "wires": [
             [
                 "c5234d58e71c5939"
             ]
-        ]
-    },
-    {
-        "id": "1a50cc1518b94141",
-        "type": "inject",
-        "z": "727cabf56f83b992",
-        "name": "categories",
-        "props": [
-            {
-                "p": "authorization",
-                "v": "bearer",
-                "vt": "flow"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "x": 380,
-        "y": 680,
-        "wires": [
-            [
-                "56909346ae0b2936"
-            ]
-        ]
-    },
-    {
-        "id": "56909346ae0b2936",
-        "type": "graphql",
-        "z": "727cabf56f83b992",
-        "name": "categories",
-        "graphql": "e0d0143ee4f650a7",
-        "format": "text",
-        "syntax": "mustache",
-        "template": "query MyQuery {\n  categories {\n    pageInfo {\n      hasNextPage\n      hasPreviousPage\n    }\n    totalCount\n  }\n}\n",
-        "showDebug": false,
-        "x": 590,
-        "y": 680,
-        "wires": [
-            [
-                "2904ace6e2db2de0"
-            ],
-            []
         ]
     },
     {
@@ -591,75 +1262,13 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 140,
-        "y": 60,
+        "x": 160,
+        "y": 480,
         "wires": [
             [
                 "7ed308d826d7a710"
             ]
         ]
-    },
-    {
-        "id": "7b1ec27c82af6140",
-        "type": "graphql",
-        "z": "727cabf56f83b992",
-        "name": "query Agents",
-        "graphql": "e0d0143ee4f650a7",
-        "format": "text",
-        "syntax": "mustache",
-        "template": "query agents {\n  agents(limit: 20) {\n    canonicalUrl\n    displayUsername\n    id\n    image\n    agentType\n    name\n    note\n\n  }\n}\n \n",
-        "showDebug": false,
-        "x": 590,
-        "y": 780,
-        "wires": [
-            [
-                "bdb14b78eab721c4"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "b56a5d4324b5c24a",
-        "type": "inject",
-        "z": "727cabf56f83b992",
-        "name": "agents",
-        "props": [
-            {
-                "p": "authorization",
-                "v": "bearer",
-                "vt": "global"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "str",
-        "x": 390,
-        "y": 780,
-        "wires": [
-            [
-                "7b1ec27c82af6140"
-            ]
-        ]
-    },
-    {
-        "id": "bdb14b78eab721c4",
-        "type": "debug",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 930,
-        "y": 780,
-        "wires": []
     },
     {
         "id": "46591adb4083608e",
@@ -671,8 +1280,8 @@
         "syntax": "mustache",
         "template": "query economicResources {\n  economicResources {\n    id\n    image\n    name\n    note\n  }\n}",
         "showDebug": false,
-        "x": 580,
-        "y": 380,
+        "x": 480,
+        "y": 80,
         "wires": [
             [
                 "49f91532562d5229",
@@ -699,8 +1308,8 @@
         "onceDelay": 0.1,
         "topic": "",
         "payloadType": "str",
-        "x": 290,
-        "y": 380,
+        "x": 150,
+        "y": 80,
         "wires": [
             [
                 "46591adb4083608e"
@@ -720,8 +1329,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1000,
-        "y": 400,
+        "x": 860,
+        "y": 120,
         "wires": []
     },
     {
@@ -737,8 +1346,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 520,
+        "x": 770,
+        "y": 240,
         "wires": []
     },
     {
@@ -747,8 +1356,8 @@
         "z": "727cabf56f83b992",
         "name": "",
         "env": [],
-        "x": 600,
-        "y": 520,
+        "x": 460,
+        "y": 240,
         "wires": [
             [
                 "ca65bf2a50ca7a23"
@@ -787,8 +1396,8 @@
         "topic": "",
         "payload": "panino09",
         "payloadType": "str",
-        "x": 310,
-        "y": 520,
+        "x": 170,
+        "y": 240,
         "wires": [
             [
                 "9578835e9f6dab95"
@@ -827,8 +1436,8 @@
         "topic": "",
         "payload": "panino11",
         "payloadType": "str",
-        "x": 310,
-        "y": 460,
+        "x": 170,
+        "y": 180,
         "wires": [
             [
                 "63136a43b4a8c4c6"
@@ -845,8 +1454,8 @@
         "syntax": "mustache",
         "template": "mutation {createEconomicEvent(\n      event: {\n        action: \"produce\",\n        provider: \"{{provider}}\",\n        receiver: \"{{receiver}}\",\n        resourceQuantity: null,\n      },\n      newInventoriedResource: {\n        name: \"{{payload}}\",\n        note: \"notes\",\n        tags: \"tag\"\n      }\n      ) {\n        economicEvent {\n          id\n          note\n          resourceInventoriedAs {\n            id\n            name\n            onhandQuantity {\n              hasNumericalValue\n              hasUnit {\n                label\n                symbol\n              }\n            }\n            accountingQuantity {\n              hasNumericalValue\n              hasUnit {\n                label\n                symbol\n              }\n            }\n          }\n        }\n      }\n    }",
         "showDebug": true,
-        "x": 600,
-        "y": 460,
+        "x": 460,
+        "y": 180,
         "wires": [
             [
                 "70ebd13f42a515d9"
@@ -867,8 +1476,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 460,
+        "x": 770,
+        "y": 180,
         "wires": []
     },
     {
@@ -876,8 +1485,8 @@
         "type": "subflow:6dbb08529c2feac4",
         "z": "727cabf56f83b992",
         "name": "",
-        "x": 600,
-        "y": 260,
+        "x": 660,
+        "y": 660,
         "wires": [
             [
                 "cc2b490738580147"
@@ -907,7 +1516,7 @@
         "payload": "panino58",
         "payloadType": "str",
         "x": 150,
-        "y": 260,
+        "y": 660,
         "wires": [
             [
                 "b48934f7c8cbcc0a"
@@ -924,8 +1533,8 @@
         "syntax": "mustache",
         "template": "query MyQuery {\n  resourceSpecifications {\n    name,\n    id\n  }\n}",
         "showDebug": false,
-        "x": 640,
-        "y": 60,
+        "x": 680,
+        "y": 480,
         "wires": [
             [
                 "cc2b490738580147"
@@ -946,8 +1555,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1100,
-        "y": 220,
+        "x": 1120,
+        "y": 560,
         "wires": []
     },
     {
@@ -963,8 +1572,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1110,
-        "y": 180,
+        "x": 1130,
+        "y": 520,
         "wires": []
     },
     {
@@ -980,364 +1589,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "48514af58ed4f1f7",
-        "type": "graphql",
-        "z": "727cabf56f83b992",
-        "name": "query myAgent",
-        "graphql": "e0d0143ee4f650a7",
-        "format": "text",
-        "syntax": "mustache",
-        "template": "query myAgent {\n  myAgent {\n    agentType\n    canonicalUrl\n    inventoriedEconomicResources {\n      name\n    }\n  }\n}",
-        "showDebug": false,
-        "x": 600,
-        "y": 880,
-        "wires": [
-            [
-                "53227ec302f87a6d"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "6c352197212cdfcd",
-        "type": "inject",
-        "z": "727cabf56f83b992",
-        "name": "agents",
-        "props": [
-            {
-                "p": "authorization",
-                "v": "bearer",
-                "vt": "global"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "str",
-        "x": 370,
-        "y": 880,
-        "wires": [
-            [
-                "48514af58ed4f1f7"
-            ]
-        ]
-    },
-    {
-        "id": "53227ec302f87a6d",
-        "type": "debug",
-        "z": "727cabf56f83b992",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 910,
-        "y": 880,
-        "wires": []
-    },
-    {
-        "id": "935b3e0a5cf84e10",
-        "type": "inject",
-        "z": "c107fab43a12cc56",
-        "name": "Set bearer in flow / execute login",
-        "props": [
-            {
-                "p": "time",
-                "v": "",
-                "vt": "date"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "str",
-        "x": 190,
-        "y": 100,
-        "wires": [
-            [
-                "9cdf5bce7aa97dbd"
-            ]
-        ]
-    },
-    {
-        "id": "9cdf5bce7aa97dbd",
-        "type": "change",
-        "z": "c107fab43a12cc56",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "passwd",
-                "pt": "msg",
-                "to": "passwd",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 440,
-        "y": 100,
-        "wires": [
-            [
-                "666de9b2a745c73e"
-            ]
-        ]
-    },
-    {
-        "id": "ace41e1f09e93531",
-        "type": "inject",
-        "z": "c107fab43a12cc56",
-        "name": "Set password",
-        "props": [
-            {
-                "p": "passwd",
-                "v": "password",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payloadType": "str",
-        "x": 130,
-        "y": 40,
-        "wires": [
-            [
-                "44b7f62a0c017353"
-            ]
-        ]
-    },
-    {
-        "id": "44b7f62a0c017353",
-        "type": "change",
-        "z": "c107fab43a12cc56",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "passwd",
-                "pt": "global",
-                "to": "passwd",
-                "tot": "msg"
-            },
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "passwd",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 480,
-        "y": 40,
-        "wires": [
-            [
-                "a8a04515c2c69ffb"
-            ]
-        ]
-    },
-    {
-        "id": "a8a04515c2c69ffb",
-        "type": "debug",
-        "z": "c107fab43a12cc56",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 750,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "5d24de78469bdbbf",
-        "type": "debug",
-        "z": "c107fab43a12cc56",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1170,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "bce6e0290e97db78",
-        "type": "template",
-        "z": "c107fab43a12cc56",
-        "name": "Bearer",
-        "field": "payload",
-        "fieldType": "msg",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "Bearer {{payload.login.token}}",
-        "output": "str",
-        "x": 1010,
-        "y": 100,
-        "wires": [
-            [
-                "5d24de78469bdbbf",
-                "76bb49a29c827b4b"
-            ]
-        ]
-    },
-    {
-        "id": "76bb49a29c827b4b",
-        "type": "change",
-        "z": "c107fab43a12cc56",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "bearer",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 1210,
-        "y": 140,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "bf5b869046bee7a5",
-        "type": "inject",
-        "z": "c107fab43a12cc56",
-        "name": "password",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "passwd",
-        "payloadType": "global",
-        "x": 120,
-        "y": 160,
-        "wires": [
-            [
-                "23ececa3b315d1f5"
-            ]
-        ]
-    },
-    {
-        "id": "23ececa3b315d1f5",
-        "type": "debug",
-        "z": "c107fab43a12cc56",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 270,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "666de9b2a745c73e",
-        "type": "graphql",
-        "z": "c107fab43a12cc56",
-        "name": "http://135.181.35.156:4000/api/explore",
-        "graphql": "e0d0143ee4f650a7",
-        "format": "handlebars",
-        "syntax": "mustache",
-        "template": "mutation {\n   \n  login(emailOrUsername: \"kostasprint@gmail.com\", password: \"{{passwd}}\") {\n      token # Use the token to activate a session with the server\n    }\n}",
-        "showDebug": true,
-        "x": 720,
-        "y": 100,
-        "wires": [
-            [
-                "bce6e0290e97db78"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "85af6596f52df097",
-        "type": "inject",
-        "z": "c107fab43a12cc56",
-        "name": "bearer",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "bearer",
-        "payloadType": "global",
-        "x": 110,
-        "y": 220,
-        "wires": [
-            [
-                "eff4c831b1fb5578"
-            ]
-        ]
-    },
-    {
-        "id": "eff4c831b1fb5578",
-        "type": "debug",
-        "z": "c107fab43a12cc56",
-        "name": "",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 270,
-        "y": 220,
+        "x": 770,
+        "y": 80,
         "wires": []
     },
     {
@@ -1640,14 +1893,14 @@
         ]
     },
     {
-        "id": "ae531496b0ed9bec",
+        "id": "0a23bc07e2f829ff",
         "type": "ui_button",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "name": "",
         "group": "c6a88f87f8cf82af",
-        "order": 3,
-        "width": "6",
-        "height": "1",
+        "order": 1,
+        "width": "0",
+        "height": "0",
         "passthru": false,
         "label": "query Economic Resources",
         "tooltip": "",
@@ -1659,39 +1912,39 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 160,
-        "y": 120,
+        "x": 140,
+        "y": 60,
         "wires": [
             [
-                "dd75fc8b62d3f68d"
+                "46aa440ab7b0f8ee"
             ]
         ]
     },
     {
-        "id": "dd75fc8b62d3f68d",
+        "id": "46aa440ab7b0f8ee",
         "type": "graphql",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "name": "query economicResources",
         "graphql": "e0d0143ee4f650a7",
         "format": "text",
         "syntax": "plain",
         "template": "query economicResources {\n  economicResources {\n    id\n    image\n    name\n    note\n    onhandQuantity {\n      hasNumericalValue\n    }\n    accountingQuantity {\n      hasNumericalValue\n      hasUnit {\n        canonicalUrl\n        id\n        label\n        symbol\n      }\n      id\n    }\n  }\n}",
         "showDebug": false,
-        "x": 440,
-        "y": 120,
+        "x": 500,
+        "y": 60,
         "wires": [
             [
-                "9694c70d11269d0e",
-                "7df3f9b4385b2c83"
+                "e48195398eb54229",
+                "bd4bbdb20efb65a9"
             ],
             []
         ]
     },
     {
-        "id": "f0cfc191f7b56d67",
+        "id": "dc44b75eba84bd76",
         "type": "inject",
-        "z": "f8d4338b40ccbba9",
-        "name": "resourceSpecifications",
+        "z": "11e7289ee8d08b57",
+        "name": "query",
         "props": [
             {
                 "p": "authorization",
@@ -1704,16 +1957,18 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "x": 160,
-        "y": 180,
+        "x": 210,
+        "y": 120,
         "wires": [
-            []
+            [
+                "46aa440ab7b0f8ee"
+            ]
         ]
     },
     {
-        "id": "e70e92f5e93fc3dd",
+        "id": "556571edf1916a42",
         "type": "debug",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1723,34 +1978,34 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 910,
+        "x": 930,
         "y": 100,
         "wires": []
     },
     {
-        "id": "06809219c28278aa",
+        "id": "ef1d012b19a7c2bd",
         "type": "graphql",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "name": "economicResource",
         "graphql": "e0d0143ee4f650a7",
         "format": "handlebars",
         "syntax": "mustache",
         "template": "query MyQuery {\n  economicResource(id: \"{{payload}}\") {\n    name\n    note\n    onhandQuantity {\n      hasNumericalValue\n    }\n  }\n}\n",
         "showDebug": false,
-        "x": 490,
-        "y": 300,
+        "x": 470,
+        "y": 260,
         "wires": [
             [
-                "051deb6ba0e069c9",
-                "a59eda712ef12abc"
+                "d91f8d3bf9f222e0",
+                "2e8ac77a3f8c4f89"
             ],
             []
         ]
     },
     {
-        "id": "d6b96d5b66cda02b",
+        "id": "56ea02bdd317999f",
         "type": "inject",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "name": "01FNRPYRXK8MEVMR0SQQSD0QPC",
         "props": [
             {
@@ -1769,37 +2024,37 @@
         "topic": "",
         "payload": "01FNRPYRXK8MEVMR0SQQSD0QPC",
         "payloadType": "str",
-        "x": 210,
-        "y": 360,
+        "x": 190,
+        "y": 320,
         "wires": [
             []
         ]
     },
     {
-        "id": "e4909ec6861e787a",
+        "id": "950250cefcdbd42b",
         "type": "ui_template",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "group": "c6a88f87f8cf82af",
         "name": "resources",
         "order": 3,
-        "width": "10",
-        "height": "10",
+        "width": "0",
+        "height": "0",
         "format": "<div ng-bind-html=\"msg.payload\"></div>",
         "storeOutMessages": false,
         "fwdInMessages": false,
         "resendOnRefresh": false,
         "templateScope": "local",
         "className": "",
-        "x": 900,
+        "x": 920,
         "y": 140,
         "wires": [
             []
         ]
     },
     {
-        "id": "9694c70d11269d0e",
+        "id": "e48195398eb54229",
         "type": "template",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -1807,19 +2062,19 @@
         "syntax": "mustache",
         "template": "{{#payload.economicResources}}\n      {{id}} {{name}} {{note}} {{onhandQuantity.hasNumericalValue}}\n{{/payload.economicResources}}",
         "output": "str",
-        "x": 680,
+        "x": 700,
         "y": 140,
         "wires": [
             [
-                "e70e92f5e93fc3dd",
-                "e4909ec6861e787a"
+                "556571edf1916a42",
+                "950250cefcdbd42b"
             ]
         ]
     },
     {
-        "id": "7df3f9b4385b2c83",
+        "id": "bd4bbdb20efb65a9",
         "type": "debug",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -1829,14 +2084,14 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
+        "x": 930,
         "y": 60,
         "wires": []
     },
     {
-        "id": "f835db6f95c2e56f",
+        "id": "80ce6eae628ef281",
         "type": "debug",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "name": "",
         "active": true,
         "tosidebar": true,
@@ -1851,9 +2106,9 @@
         "wires": []
     },
     {
-        "id": "20e301d7524e9798",
+        "id": "9b55e243846d2337",
         "type": "ui_text_input",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "name": "",
         "label": "",
         "tooltip": "query a resource",
@@ -1868,18 +2123,18 @@
         "sendOnBlur": true,
         "className": "",
         "topicType": "msg",
-        "x": 140,
-        "y": 300,
+        "x": 80,
+        "y": 260,
         "wires": [
             [
-                "06809219c28278aa"
+                "ef1d012b19a7c2bd"
             ]
         ]
     },
     {
-        "id": "051deb6ba0e069c9",
+        "id": "d91f8d3bf9f222e0",
         "type": "template",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "name": "",
         "field": "payload",
         "fieldType": "msg",
@@ -1891,20 +2146,20 @@
         "y": 320,
         "wires": [
             [
-                "b2ad18643edd4511",
-                "f835db6f95c2e56f"
+                "198212dc6e4a73e8",
+                "80ce6eae628ef281"
             ]
         ]
     },
     {
-        "id": "b2ad18643edd4511",
+        "id": "198212dc6e4a73e8",
         "type": "ui_template",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "group": "1bf8ea68f62a96fd",
         "name": "",
         "order": 3,
-        "width": "10",
-        "height": "10",
+        "width": "0",
+        "height": "0",
         "format": "<div ng-bind-html=\"msg.payload\"></div>",
         "storeOutMessages": false,
         "fwdInMessages": false,
@@ -1918,9 +2173,9 @@
         ]
     },
     {
-        "id": "a59eda712ef12abc",
+        "id": "2e8ac77a3f8c4f89",
         "type": "debug",
-        "z": "f8d4338b40ccbba9",
+        "z": "11e7289ee8d08b57",
         "name": "",
         "active": false,
         "tosidebar": true,
